@@ -83,12 +83,12 @@ jobs:
           # Use jq to iterate over all labs and their repositories
           NUM_LABS=$(jq '.labs | length' repos.json)
           for ((i=0; i<NUM_LABS; i++)); do
-            DISPLAY_NAME=$(jq -r ".labs[\$i].display_name" repos.json)
-            NUM_REPOS=$(jq ".labs[\$i].repositories | length" repos.json)
+            DISPLAY_NAME=$(jq -r --argjson i "$i" '.labs[$i].display_name' repos.json)
+            NUM_REPOS=$(jq --argjson i "$i" ".labs[$i].repositories | length" repos.json)
 
             for ((j=0; j<NUM_REPOS; j++)); do
-              ORG=$(jq -r ".labs[\$i].repositories[\$j].org" repos.json)
-              REPO=$(jq -r ".labs[\$i].repositories[\$j].name" repos.json)
+              ORG=$(jq -r --argjson i "$i" --argjson j "$j" '.labs[$i].repositories[$j].org' repos.json)
+              REPO=$(jq -r --argjson i "$i" --argjson j "$j" '.labs[$i].repositories[$j].name' repos.json)
 
               echo "  Checking \${ORG}/\${REPO} (\${DISPLAY_NAME})..."
 
