@@ -62,8 +62,8 @@ jobs:
           # Format: max_timestamp|commit_timestamp|pr_timestamp|issue_timestamp|org|repo|display_name
           ALL_REPOS_TMP=$(mktemp)
 
-          QUERY='query(\$owner:String!, \$name:String!) {
-            repository(owner: \$owner, name: \$name) {
+          QUERY='query($owner:String!, $name:String!) {
+            repository(owner: $owner, name: $name) {
               pushedAt
               pullRequests(first: 1, orderBy: {field: UPDATED_AT, direction: DESC}) {
                 nodes {
@@ -90,29 +90,29 @@ jobs:
               ORG=$(jq -r --argjson i "$i" --argjson j "$j" '.labs[$i].repositories[$j].org' repos.json)
               REPO=$(jq -r --argjson i "$i" --argjson j "$j" '.labs[$i].repositories[$j].name' repos.json)
 
-              echo "  Checking \${ORG}/\${REPO} (\${DISPLAY_NAME})..."
+              echo "  Checking ${ORG}/${REPO} (${DISPLAY_NAME})..."
 
-              RESULT=$(gh api graphql -f query="\$QUERY" -F owner="\$ORG" -F name="\$REPO" --jq '.data.repository' 2>/dev/null || echo "null")
+              RESULT=$(gh api graphql -f query="$QUERY" -F owner="$ORG" -F name="$REPO" --jq '.data.repository' 2>/dev/null || echo "null")
               
-              if [ "\$RESULT" != "null" ] && [ -n "\$RESULT" ]; then
-                PUSHED_AT=$(echo "\$RESULT" | jq -r '.pushedAt // empty')
-                PR_UPDATED_AT=$(echo "\$RESULT" | jq -r '.pullRequests.nodes[0].updatedAt // empty')
-                ISSUE_UPDATED_AT=$(echo "\$RESULT" | jq -r '.issues.nodes[0].updatedAt // empty')
+              if [ "$RESULT" != "null" ] && [ -n "$RESULT" ]; then
+                PUSHED_AT=$(echo "$RESULT" | jq -r '.pushedAt // empty')
+                PR_UPDATED_AT=$(echo "$RESULT" | jq -r '.pullRequests.nodes[0].updatedAt // empty')
+                ISSUE_UPDATED_AT=$(echo "$RESULT" | jq -r '.issues.nodes[0].updatedAt // empty')
 
                 COMMIT_TS=0
                 PR_TS=0
                 ISSUE_TS=0
-                [ -n "\$PUSHED_AT" ] && COMMIT_TS=$(date -d "\$PUSHED_AT" "+%s" 2>/dev/null || echo 0)
-                [ -n "\$PR_UPDATED_AT" ] && PR_TS=$(date -d "\$PR_UPDATED_AT" "+%s" 2>/dev/null || echo 0)
-                [ -n "\$ISSUE_UPDATED_AT" ] && ISSUE_TS=$(date -d "\$ISSUE_UPDATED_AT" "+%s" 2>/dev/null || echo 0)
+                [ -n "$PUSHED_AT" ] && COMMIT_TS=$(date -d "$PUSHED_AT" "+%s" 2>/dev/null || echo 0)
+                [ -n "$PR_UPDATED_AT" ] && PR_TS=$(date -d "$PR_UPDATED_AT" "+%s" 2>/dev/null || echo 0)
+                [ -n "$ISSUE_UPDATED_AT" ] && ISSUE_TS=$(date -d "$ISSUE_UPDATED_AT" "+%s" 2>/dev/null || echo 0)
 
-                MAX_TS=\$COMMIT_TS
-                (( PR_TS > MAX_TS )) && MAX_TS=\$PR_TS
-                (( ISSUE_TS > MAX_TS )) && MAX_TS=\$ISSUE_TS
+                MAX_TS=$COMMIT_TS
+                (( PR_TS > MAX_TS )) && MAX_TS=$PR_TS
+                (( ISSUE_TS > MAX_TS )) && MAX_TS=$ISSUE_TS
 
-                echo "\$MAX_TS|\$COMMIT_TS|\$PR_TS|\$ISSUE_TS|\$ORG|\$REPO|\$DISPLAY_NAME" >> "\$ALL_REPOS_TMP"
+                echo "$MAX_TS|$COMMIT_TS|$PR_TS|$ISSUE_TS|$ORG|$REPO|$DISPLAY_NAME" >> "$ALL_REPOS_TMP"
               else
-                echo "    Failed to fetch data for \${ORG}/\${REPO}"
+                echo "    Failed to fetch data for ${ORG}/${REPO}"
               fi
             done
           done
@@ -121,43 +121,43 @@ jobs:
           LAB_NAMES=$(jq -r '.labs[].display_name' repos.json | sort -u)
 
           IFS=$'\n'
-          for lab in \$LAB_NAMES; do
-            if grep -q "|\$lab$" "\$ALL_REPOS_TMP"; then
-              echo "Generating section for Lab: \$lab..."
-              echo "## \$lab" >> activity.md
+          for lab in $LAB_NAMES; do
+            if grep -q "|$lab$" "$ALL_REPOS_TMP"; then
+              echo "Generating section for Lab: $lab..."
+              echo "## $lab" >> activity.md
               echo "| Repository | Latest Commit | Latest PR | Latest Issue | Link |" >> activity.md
               echo "| :--- | :--- | :--- | :--- | :--- |" >> activity.md
 
-              grep "|\$lab$" "\$ALL_REPOS_TMP" | sort -rn | while IFS='|' read max_ts commit_ts pr_ts issue_ts org repo display_name; do
-                repo_full="\$org/\$repo"
+              grep "|$lab$" "$ALL_REPOS_TMP" | sort -rn | while IFS='|' read max_ts commit_ts pr_ts issue_ts org repo display_name; do
+                repo_full="$org/$repo"
                 
                 # Fetch previous dates for coloring
                 # Format in PREVIOUS_ACTIVITY: repo|commit|pr|issue
-                PREV_LINE=$(grep "^\$repo_full|" "\$PREVIOUS_ACTIVITY" | head -n 1 || true)
-                p_commit=$(echo "\$PREV_LINE" | cut -d'|' -f2)
-                p_pr=$(echo "\$PREV_LINE" | cut -d'|' -f3)
-                p_issue=$(echo "\$PREV_LINE" | cut -d'|' -f4)
+                PREV_LINE=$(grep "^$repo_full|" "$PREVIOUS_ACTIVITY" | head -n 1 || true)
+                p_commit=$(echo "$PREV_LINE" | cut -d'|' -f2)
+                p_pr=$(echo "$PREV_LINE" | cut -d'|' -f3)
+                p_issue=$(echo "$PREV_LINE" | cut -d'|' -f4)
 
                 format_date() {
-                  local ts=\$1
-                  local prev=\$2
-                  if [ "\$ts" -eq 0 ] || [ -z "\$ts" ]; then echo "n/a"; return; fi
-                  local ds=$(date -d "@\$ts" "+%Y-%m-%d %H:%M:%S")
-                  if [ -z "\$prev" ]; then
-                    echo "$\\\\color{blue}{\\\\text{\${ds}}}$"
-                  elif [ "\$prev" != "\$ds" ]; then
-                    echo "$\\\\color{green}{\\\\text{\${ds}}}$"
+                  local ts=$1
+                  local prev=$2
+                  if [ "$ts" -eq 0 ] || [ -z "$ts" ]; then echo "n/a"; return; fi
+                  local ds=$(date -d "@$ts" "+%Y-%m-%d %H:%M:%S")
+                  if [ -z "$prev" ]; then
+                    echo "$\\\\color{blue}{\\\\text{${ds}}}$"
+                  elif [ "$prev" != "$ds" ]; then
+                    echo "$\\\\color{green}{\\\\text{${ds}}}$"
                   else
-                    echo "\$ds"
+                    echo "$ds"
                   fi
                 }
 
-                d_commit=$(format_date "\$commit_ts" "\$p_commit")
-                d_pr=$(format_date "\$pr_ts" "\$p_pr")
-                d_issue=$(format_date "\$issue_ts" "\$p_issue")
+                d_commit=$(format_date "$commit_ts" "$p_commit")
+                d_pr=$(format_date "$pr_ts" "$p_pr")
+                d_issue=$(format_date "$issue_ts" "$p_issue")
 
                 printf "| %s | %s | %s | %s | [github.com/%s/%s](https://github.com/%s/%s) |\n" \
-                  "\$repo_full" "\$d_commit" "\$d_pr" "\$d_issue" "\$org" "\$repo" "\$org" "\$repo" >> activity.md
+                  "$repo_full" "$d_commit" "$d_pr" "$d_issue" "$org" "$repo" "$org" "$repo" >> activity.md
               done
               echo "" >> activity.md
             fi
