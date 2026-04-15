@@ -58,6 +58,12 @@ jobs:
 
               echo "  Checking ${ORG}/${REPO} (${DISPLAY_NAME})..."
 
+              # Skip empty repositories (no branches)
+              if [ -z "$(git ls-remote --heads "https://github.com/${ORG}/${REPO}.git" 2>/dev/null)" ]; then
+                echo "    Skipping empty or inaccessible repository ${ORG}/${REPO}"
+                continue
+              fi
+
               REPO_DIR="tmp_clone_${ORG}_${REPO}"
               if git clone --depth 1 "https://github.com/${ORG}/${REPO}.git" "$REPO_DIR" --quiet; then
                 TIMESTAMP=$(git -C "$REPO_DIR" log -1 --format="%at" 2>/dev/null)
