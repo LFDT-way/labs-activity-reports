@@ -163,7 +163,7 @@ jobs:
             fi
           done
 
-          rm "\$ALL_REPOS_TMP" "\$PREVIOUS_ACTIVITY"
+#          rm "\$ALL_REPOS_TMP" "\$PREVIOUS_ACTIVITY"
 
       - name: Commit and Push Changes
         run: |
