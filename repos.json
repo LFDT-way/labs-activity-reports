@@ -467,27 +467,6 @@
       ]
     },
     {
-      "display_name": "Splice",
-      "repositories": [
-        {
-          "org": "hyperledger-labs",
-          "name": "splice"
-        },
-        {
-          "org": "hyperledger-labs",
-          "name": "splice-runner-container-hooks"
-        },
-        {
-          "org": "hyperledger-labs",
-          "name": "splice-shared-gha"
-        },
-        {
-          "org": "hyperledger-labs",
-          "name": "splice-wallet-kernel"
-        }
-      ]
-    },
-    {
       "display_name": "Verazt",
       "repositories": [
         {
