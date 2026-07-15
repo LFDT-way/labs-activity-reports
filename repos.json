@@ -1,6 +1,27 @@
 {
   "labs": [
     {
+      "display_name": "Accountable Impact Commons",
+      "repositories": [
+        {
+          "org": "Semantic-Frameworks",
+          "name": "aiao"
+        },
+        {
+          "org": "Semantic-Frameworks",
+          "name": "claimont"
+        },
+        {
+          "org": "Semantic-Frameworks",
+          "name": "impactont"
+        },
+        {
+          "org": "Semantic-Frameworks",
+          "name": "infocomm"
+        }
+      ]
+    },
+    {
       "display_name": "Agora",
       "repositories": [
         {
@@ -43,6 +64,24 @@
       ]
     },
     {
+      "display_name": "Agent Privacy Preserving Protocol (AP3)",
+      "repositories": [
+        {
+          "org": "lfdt-ap3",
+          "name": "ap3"
+        }
+      ]
+    },
+    {
+      "display_name": "Aries Agent Controller",
+      "repositories": [
+        {
+          "org": "hyperledger-labs",
+          "name": "aries-agent-controller"
+        }
+      ]
+    },
+    {
       "display_name": "Aries labs",
       "repositories": [
         {
@@ -77,15 +116,6 @@
       ]
     },
     {
-      "display_name": "BDLS",
-      "repositories": [
-        {
-          "org": "hyperledger-labs",
-          "name": "bdls"
-        }
-      ]
-    },
-    {
       "display_name": "Bevel",
       "repositories": [
         {
@@ -99,6 +129,15 @@
         {
           "org": "hyperledger-bevel",
           "name": "bevel-samples"
+        }
+      ]
+    },
+    {
+      "display_name": "Briolette",
+      "repositories": [
+        {
+          "org": "Briolette",
+          "name": "briolette"
         }
       ]
     },
@@ -147,11 +186,15 @@
         {
           "org": "hyperledger-cello",
           "name": "cello"
+        },
+        {
+          "org": "hyperledger-cello",
+          "name": "cello-analytics"
         }
       ]
     },
     {
-      "display_name": "Chaindeploy",
+      "display_name": "ChainLaunch",
       "repositories": [
         {
           "org": "LF-Decentralized-Trust-labs",
@@ -160,16 +203,16 @@
       ]
     },
     {
-      "display_name": "Verii",
+      "display_name": "Contributors Site",
       "repositories": [
         {
-          "org": "LFDT-Verii",
-          "name": "core"
+          "org": "LF-Decentralized-Trust",
+          "name": "contribute"
         }
       ]
     },
     {
-      "display_name": "Decentralized Directory Protocol",
+      "display_name": "Decentralized Directory (DeDi)",
       "repositories": [
         {
           "org": "LF-Decentralized-Trust-labs",
@@ -183,23 +226,6 @@
         {
           "org": "hyperledger-labs",
           "name": "documentation-template"
-        }
-      ]
-    },
-    {
-      "display_name": "OpenVTC",
-      "repositories": [
-        {
-          "org": "OpenVTC",
-          "name": "openvtc"
-        },
-        {
-          "org": "OpenVTC",
-          "name": "verifiable-trust-infrastructure"
-        },
-        {
-          "org": "OpenVTC",
-          "name": "dtg-credentials"
         }
       ]
     },
@@ -227,10 +253,6 @@
         {
           "org": "hyperledger-labs",
           "name": "fabric-ansible-collection"
-        },
-        {
-          "org": "hyperledger-labs",
-          "name": "fabric-builder-k8s"
         },
         {
           "org": "hyperledger-labs",
@@ -284,6 +306,15 @@
       ]
     },
     {
+      "display_name": "Generic zk-SNARKs",
+      "repositories": [
+        {
+          "org": "LF-Decentralized-Trust-labs",
+          "name": "zkproof-polycommit"
+        }
+      ]
+    },
+    {
       "display_name": "Gitmesh",
       "repositories": [
         {
@@ -293,20 +324,42 @@
       ]
     },
     {
+      "display_name": "Graavity",
+      "repositories": [
+        {
+          "org": "graavity-io",
+          "name": "graavity"
+        },
+        {
+          "org": "graavity-io",
+          "name": "graavity_io"
+        }
+      ]
+    },
+    {
+      "display_name": "Harmonia",
+      "repositories": [
+        {
+          "org": "hyperledger-labs",
+          "name": "harmonia"
+        }
+      ]
+    },
+    {
+      "display_name": "Hyperledger Community Management Tools",
+      "repositories": [
+        {
+          "org": "hyperledger-labs",
+          "name": "hyperledger-community-management-tools"
+        }
+      ]
+    },
+    {
       "display_name": "Hyperledger Fabric Connector",
       "repositories": [
         {
           "org": "hyperledger-labs",
           "name": "hlf-connector"
-        }
-      ]
-    },
-    {
-      "display_name": "HOPrS",
-      "repositories": [
-        {
-          "org": "LF-Decentralized-Trust-labs",
-          "name": "HOPrS"
         }
       ]
     },
@@ -333,20 +386,28 @@
       ]
     },
     {
+      "display_name": "IPRAM",
+      "repositories": [
+        {
+          "org": "LFDT-IPRAM",
+          "name": "docs"
+        },
+        {
+          "org": "LFDT-IPRAM",
+          "name": "impl"
+        },
+        {
+          "org": "LFDT-IPRAM",
+          "name": "spec"
+        }
+      ]
+    },
+    {
       "display_name": "Learning Tokens",
       "repositories": [
         {
           "org": "hyperledger-labs",
           "name": "learning-tokens"
-        }
-      ]
-    },
-    {
-      "display_name": "Microfab",
-      "repositories": [
-        {
-          "org": "hyperledger-labs",
-          "name": "microfab"
         }
       ]
     },
@@ -377,6 +438,15 @@
       ]
     },
     {
+      "display_name": "Onboarding Diagnostics",
+      "repositories": [
+        {
+          "org": "LF-Decentralized-Trust-labs",
+          "name": "onboard-diagnostics"
+        }
+      ]
+    },
+    {
       "display_name": "One Attestation Api",
       "repositories": [
         {
@@ -386,7 +456,25 @@
       ]
     },
     {
-      "display_name": "Opendecentra Nextg",
+      "display_name": "Open Source Frontiers",
+      "repositories": [
+        {
+          "org": "LF-Decentralized-Trust-labs",
+          "name": "os-frontiers"
+        }
+      ]
+    },
+    {
+      "display_name": "Open Tokenized Asset Standard (OTAS)",
+      "repositories": [
+        {
+          "org": "OpenTokenizedAssetStandard",
+          "name": "community-specification-template"
+        }
+      ]
+    },
+    {
+      "display_name": "OpenDecentra-NextG",
       "repositories": [
         {
           "org": "LF-Decentralized-Trust-labs",
@@ -400,6 +488,51 @@
         {
           "org": "OpenReagent",
           "name": "openreagent"
+        }
+      ]
+    },
+    {
+      "display_name": "OpenVTC",
+      "repositories": [
+        {
+          "org": "OpenVTC",
+          "name": "openvtc"
+        },
+        {
+          "org": "OpenVTC",
+          "name": "verifiable-trust-infrastructure"
+        },
+        {
+          "org": "OpenVTC",
+          "name": "dtg-credentials"
+        },
+        {
+          "org": "OpenVTC",
+          "name": "rp-sdk-js"
+        },
+        {
+          "org": "OpenVTC",
+          "name": "vta-browser-plugin"
+        },
+        {
+          "org": "OpenVTC",
+          "name": "vta-mobile-agent-ios"
+        },
+        {
+          "org": "OpenVTC",
+          "name": "vti-didcomm-js"
+        },
+        {
+          "org": "OpenVTC",
+          "name": "vti-push-gateway"
+        },
+        {
+          "org": "OpenVTC",
+          "name": "vti-setup"
+        },
+        {
+          "org": "OpenVTC",
+          "name": "wiki"
         }
       ]
     },
@@ -458,6 +591,15 @@
       ]
     },
     {
+      "display_name": "RethV",
+      "repositories": [
+        {
+          "org": "LF-Decentralized-Trust-labs",
+          "name": "rethv"
+        }
+      ]
+    },
+    {
       "display_name": "SmartBFT",
       "repositories": [
         {
@@ -467,11 +609,62 @@
       ]
     },
     {
+      "display_name": "Solang",
+      "repositories": [
+        {
+          "org": "hyperledger-solang",
+          "name": "solang"
+        },
+        {
+          "org": "hyperledger-solang",
+          "name": "homebrew-solang"
+        },
+        {
+          "org": "hyperledger-solang",
+          "name": "solang-aqd"
+        },
+        {
+          "org": "hyperledger-solang",
+          "name": "solang-llvm"
+        },
+        {
+          "org": "hyperledger-solang",
+          "name": "solang-playground"
+        },
+        {
+          "org": "hyperledger-solang",
+          "name": "solang-substrate-ci"
+        },
+        {
+          "org": "hyperledger-solang",
+          "name": "solang-vscode"
+        }
+      ]
+    },
+    {
+      "display_name": "VeltoraCore",
+      "repositories": [
+        {
+          "org": "LF-Decentralized-Trust-labs",
+          "name": "veltoracore"
+        }
+      ]
+    },
+    {
       "display_name": "Verazt",
       "repositories": [
         {
           "org": "LF-Decentralized-Trust-labs",
           "name": "verazt"
+        }
+      ]
+    },
+    {
+      "display_name": "Verii",
+      "repositories": [
+        {
+          "org": "LFDT-Verii",
+          "name": "core"
         }
       ]
     },
@@ -497,6 +690,15 @@
       ]
     },
     {
+      "display_name": "Web3DB",
+      "repositories": [
+        {
+          "org": "LF-Decentralized-Trust-labs",
+          "name": "web3db"
+        }
+      ]
+    },
+    {
       "display_name": "Yui",
       "repositories": [
         {
@@ -513,11 +715,11 @@
         },
         {
           "org": "hyperledger-labs",
-          "name": "yui-ibc-solidity"
+          "name": "yui-relayer"
         },
         {
           "org": "hyperledger-labs",
-          "name": "yui-relayer"
+          "name": "yui-ibc-solidity"
         }
       ]
     },
@@ -536,15 +738,6 @@
         {
           "org": "LF-Decentralized-Trust-labs",
           "name": "zkbk"
-        }
-      ]
-    },
-    {
-      "display_name": "Zkproof Polycommit",
-      "repositories": [
-        {
-          "org": "LF-Decentralized-Trust-labs",
-          "name": "zkproof-polycommit"
         }
       ]
     }
