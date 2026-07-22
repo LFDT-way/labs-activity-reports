@@ -1,6 +1,6 @@
 # Labs to Evaluate
 
-**Report date: 2026-07-22 (based on [activity.md](activity.md) generated 2026-07-22 00:39:56 UTC)**
+**Report date: 2026-07-22 (based on [activity.md](activity.md) generated 2026-07-22 08:40:58 UTC)**
 
 Labs listed here have had **no activity in the last three months** (no activity since 2026-04-22), but have had activity within the last six months. These labs should be evaluated for continued viability. Labs with no activity for more than six months are escalated to [at-risk.md](at-risk.md) and are not repeated here.
 
@@ -12,7 +12,6 @@ A lab's "most recent activity" is the latest of the last commit push, pull reque
 | AIFAQ | 2026-02-05 12:42:19 | 1 |
 | Zkbk | 2026-02-19 20:28:52 | 1 |
 | Hyperledger Fabric Connector | 2026-03-13 07:46:21 | 1 |
-| Waterfall | 2026-03-26 19:08:15 | 4 |
 | Verazt | 2026-04-06 10:52:51 | 1 |
 
 ## Harmonia
@@ -38,15 +37,6 @@ A lab's "most recent activity" is the latest of the last commit push, pull reque
 | Repository | Last Activity | Link |
 | :--- | :--- | :--- |
 | hyperledger-labs/hlf-connector | 2026-03-13 07:46:21 | [github.com/hyperledger-labs/hlf-connector](https://github.com/hyperledger-labs/hlf-connector) |
-
-## Waterfall
-
-| Repository | Last Activity | Link |
-| :--- | :--- | :--- |
-| LF-Decentralized-Trust-labs/waterfall-one-click-setup-app | 2026-03-26 19:08:15 | [github.com/LF-Decentralized-Trust-labs/waterfall-one-click-setup-app](https://github.com/LF-Decentralized-Trust-labs/waterfall-one-click-setup-app) |
-| LF-Decentralized-Trust-labs/waterfall-docs | 2025-01-28 17:09:03 | [github.com/LF-Decentralized-Trust-labs/waterfall-docs](https://github.com/LF-Decentralized-Trust-labs/waterfall-docs) |
-| LF-Decentralized-Trust-labs/waterfall-gwat | n/a | [github.com/LF-Decentralized-Trust-labs/waterfall-gwat](https://github.com/LF-Decentralized-Trust-labs/waterfall-gwat) |
-| LF-Decentralized-Trust-labs/waterfall-coordinator | n/a | [github.com/LF-Decentralized-Trust-labs/waterfall-coordinator](https://github.com/LF-Decentralized-Trust-labs/waterfall-coordinator) |
 
 ## Verazt
 
