@@ -100,3 +100,5 @@ for lab in $LAB_NAMES; do
     fi
 done
 rm "$ALL_REPOS_TMP" "$PREVIOUS_ACTIVITY"
+
+python3 generate_reports.py

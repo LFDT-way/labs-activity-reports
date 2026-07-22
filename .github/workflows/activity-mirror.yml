@@ -165,10 +165,13 @@ jobs:
 
 #          rm "\$ALL_REPOS_TMP" "\$PREVIOUS_ACTIVITY"
 
+      - name: Generate evaluate.md and at-risk.md
+        run: python3 generate_reports.py
+
       - name: Commit and Push Changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add activity.md
-          git commit -m "Update activity.md with latest activity grouped by org" || echo "No changes to commit"
+          git add activity.md evaluate.md at-risk.md
+          git commit -m "Update activity, evaluate, and at-risk reports" || echo "No changes to commit"
           git push

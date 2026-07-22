@@ -4,19 +4,19 @@
       "display_name": "Accountable Impact Commons",
       "repositories": [
         {
-          "org": "Semantic-Frameworks",
+          "org": "Accountable-Impact-Commons",
           "name": "aiao"
         },
         {
-          "org": "Semantic-Frameworks",
+          "org": "Accountable-Impact-Commons",
           "name": "claimont"
         },
         {
-          "org": "Semantic-Frameworks",
+          "org": "Accountable-Impact-Commons",
           "name": "impactont"
         },
         {
-          "org": "Semantic-Frameworks",
+          "org": "Accountable-Impact-Commons",
           "name": "infocomm"
         }
       ]
@@ -665,27 +665,6 @@
         {
           "org": "LFDT-Verii",
           "name": "core"
-        }
-      ]
-    },
-    {
-      "display_name": "Waterfall",
-      "repositories": [
-        {
-          "org": "LF-Decentralized-Trust-labs",
-          "name": "waterfall-coordinator"
-        },
-        {
-          "org": "LF-Decentralized-Trust-labs",
-          "name": "waterfall-docs"
-        },
-        {
-          "org": "LF-Decentralized-Trust-labs",
-          "name": "waterfall-gwat"
-        },
-        {
-          "org": "LF-Decentralized-Trust-labs",
-          "name": "waterfall-one-click-setup-app"
         }
       ]
     },
