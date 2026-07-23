@@ -73,15 +73,6 @@
       ]
     },
     {
-      "display_name": "Aries Agent Controller",
-      "repositories": [
-        {
-          "org": "hyperledger-labs",
-          "name": "aries-agent-controller"
-        }
-      ]
-    },
-    {
       "display_name": "Aries labs",
       "repositories": [
         {
@@ -320,19 +311,6 @@
         {
           "org": "LF-Decentralized-Trust-labs",
           "name": "gitmesh"
-        }
-      ]
-    },
-    {
-      "display_name": "Graavity",
-      "repositories": [
-        {
-          "org": "graavity-io",
-          "name": "graavity"
-        },
-        {
-          "org": "graavity-io",
-          "name": "graavity_io"
         }
       ]
     },
@@ -682,15 +660,6 @@
         {
           "org": "LFDT-Verii",
           "name": "core"
-        }
-      ]
-    },
-    {
-      "display_name": "Web3DB",
-      "repositories": [
-        {
-          "org": "LF-Decentralized-Trust-labs",
-          "name": "web3db"
         }
       ]
     },
