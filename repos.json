@@ -537,6 +537,23 @@
       ]
     },
     {
+      "display_name": "PDP-Connect",
+      "repositories": [
+        {
+          "org": "PDP-Connect",
+          "name": "pdpp"
+        },
+        {
+          "org": "PDP-Connect",
+          "name": "data-connect"
+        },
+        {
+          "org": "PDP-Connect",
+          "name": "data-connectors"
+        }
+      ]
+    },
+    {
       "display_name": "Perun",
       "repositories": [
         {
