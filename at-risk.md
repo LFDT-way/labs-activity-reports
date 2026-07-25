@@ -1,13 +1,14 @@
 # At-Risk Labs
 
-**Report date: 2026-07-24 (based on [activity.md](activity.md) generated 2026-07-24 00:39:16 UTC)**
+**Report date: 2026-07-25 (based on [activity.md](activity.md) generated 2026-07-25 00:42:51 UTC)**
 
-Labs listed here have had **no activity in the last six months** (no activity since 2026-01-24). These labs are considered at risk of being archived or retired.
+Labs listed here have had **no activity in the last six months** (no activity since 2026-01-25). These labs are considered at risk of being archived or retired.
 
 A lab's "most recent activity" is the latest of the last commit push, pull request update, or issue update across all of its tracked repositories, as reported in [activity.md](activity.md).
 
 | Lab | Most Recent Activity | Repositories |
 | :--- | :--- | :--- |
+| VeltoraCore | n/a | 1 |
 | Hyperledger Community Management Tools | 2024-08-02 15:19:04 | 1 |
 | Documentation Template | 2025-01-07 14:51:38 | 1 |
 | Artizyou | 2025-11-15 12:42:57 | 1 |
@@ -16,6 +17,12 @@ A lab's "most recent activity" is the latest of the last commit push, pull reque
 | Contributors Site | 2026-01-11 14:43:13 | 1 |
 | OpenDecentra-NextG | 2026-01-11 18:56:29 | 1 |
 | Flavum | 2026-01-17 18:18:54 | 1 |
+
+## VeltoraCore
+
+| Repository | Last Activity | Link |
+| :--- | :--- | :--- |
+| LF-Decentralized-Trust-labs/veltoracore | n/a | [github.com/LF-Decentralized-Trust-labs/veltoracore](https://github.com/LF-Decentralized-Trust-labs/veltoracore) |
 
 ## Hyperledger Community Management Tools
 
