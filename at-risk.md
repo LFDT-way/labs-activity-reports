@@ -1,6 +1,6 @@
 # At-Risk Labs
 
-**Report date: 2026-08-04 (based on [activity.md](activity.md) generated 2026-08-04 00:42:01 UTC)**
+**Report date: 2026-08-04 (based on [activity.md](activity.md) generated 2026-08-04 12:42:16 UTC)**
 
 Labs listed here have had **no activity in the last six months** (no activity since 2026-02-04). These labs are considered at risk of being archived or retired.
 
@@ -10,12 +10,7 @@ A lab's "most recent activity" is the latest of the last commit push, pull reque
 | :--- | :--- | :--- |
 | Hyperledger Community Management Tools | 2024-08-02 15:19:04 | 1 |
 | Documentation Template | 2025-01-07 14:51:38 | 1 |
-| Artizyou | 2025-11-15 12:42:57 | 1 |
-| Fabino Test | 2025-12-22 05:50:22 | 1 |
-| One Attestation Api | 2026-01-07 04:10:07 | 1 |
 | Contributors Site | 2026-01-11 14:43:13 | 1 |
-| OpenDecentra-NextG | 2026-01-11 18:56:29 | 1 |
-| Flavum | 2026-01-17 18:18:54 | 1 |
 
 ## Hyperledger Community Management Tools
 
@@ -29,38 +24,8 @@ A lab's "most recent activity" is the latest of the last commit push, pull reque
 | :--- | :--- | :--- |
 | hyperledger-labs/documentation-template | 2025-01-07 14:51:38 | [github.com/hyperledger-labs/documentation-template](https://github.com/hyperledger-labs/documentation-template) |
 
-## Artizyou
-
-| Repository | Last Activity | Link |
-| :--- | :--- | :--- |
-| LF-Decentralized-Trust-labs/artizyou | 2025-11-15 12:42:57 | [github.com/LF-Decentralized-Trust-labs/artizyou](https://github.com/LF-Decentralized-Trust-labs/artizyou) |
-
-## Fabino Test
-
-| Repository | Last Activity | Link |
-| :--- | :--- | :--- |
-| LF-Decentralized-Trust-labs/fabino-test | 2025-12-22 05:50:22 | [github.com/LF-Decentralized-Trust-labs/fabino-test](https://github.com/LF-Decentralized-Trust-labs/fabino-test) |
-
-## One Attestation Api
-
-| Repository | Last Activity | Link |
-| :--- | :--- | :--- |
-| LF-Decentralized-Trust-labs/one-attestation-api | 2026-01-07 04:10:07 | [github.com/LF-Decentralized-Trust-labs/one-attestation-api](https://github.com/LF-Decentralized-Trust-labs/one-attestation-api) |
-
 ## Contributors Site
 
 | Repository | Last Activity | Link |
 | :--- | :--- | :--- |
 | LF-Decentralized-Trust/contribute | 2026-01-11 14:43:13 | [github.com/LF-Decentralized-Trust/contribute](https://github.com/LF-Decentralized-Trust/contribute) |
-
-## OpenDecentra-NextG
-
-| Repository | Last Activity | Link |
-| :--- | :--- | :--- |
-| LF-Decentralized-Trust-labs/opendecentra-nextg | 2026-01-11 18:56:29 | [github.com/LF-Decentralized-Trust-labs/opendecentra-nextg](https://github.com/LF-Decentralized-Trust-labs/opendecentra-nextg) |
-
-## Flavum
-
-| Repository | Last Activity | Link |
-| :--- | :--- | :--- |
-| LF-Decentralized-Trust-labs/flavum | 2026-01-17 18:18:54 | [github.com/LF-Decentralized-Trust-labs/flavum](https://github.com/LF-Decentralized-Trust-labs/flavum) |
