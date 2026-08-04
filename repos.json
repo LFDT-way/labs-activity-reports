@@ -22,11 +22,15 @@
       ]
     },
     {
-      "display_name": "Agent Authority Conformance",
+      "display_name": "Agent Passport System",
       "repositories": [
         {
           "org": "aeoess",
           "name": "aps-conformance-suite"
+        },
+        {
+          "org": "LFDT-Agent-Passport-System",
+          "name": "governance"
         }
       ]
     },
