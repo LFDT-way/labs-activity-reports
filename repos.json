@@ -98,15 +98,6 @@
       ]
     },
     {
-      "display_name": "Artizyou",
-      "repositories": [
-        {
-          "org": "LF-Decentralized-Trust-labs",
-          "name": "artizyou"
-        }
-      ]
-    },
-    {
       "display_name": "Bevel",
       "repositories": [
         {
@@ -221,15 +212,6 @@
       ]
     },
     {
-      "display_name": "Fabino Test",
-      "repositories": [
-        {
-          "org": "LF-Decentralized-Trust-labs",
-          "name": "fabino-test"
-        }
-      ]
-    },
-    {
       "display_name": "Fablo",
       "repositories": [
         {
@@ -284,15 +266,6 @@
         {
           "org": "LF-Decentralized-Trust-labs",
           "name": "fabric-x-block-explorer"
-        }
-      ]
-    },
-    {
-      "display_name": "Flavum",
-      "repositories": [
-        {
-          "org": "LF-Decentralized-Trust-labs",
-          "name": "flavum"
         }
       ]
     },
@@ -425,15 +398,6 @@
       ]
     },
     {
-      "display_name": "One Attestation Api",
-      "repositories": [
-        {
-          "org": "LF-Decentralized-Trust-labs",
-          "name": "one-attestation-api"
-        }
-      ]
-    },
-    {
       "display_name": "Open Source Frontiers",
       "repositories": [
         {
@@ -448,15 +412,6 @@
         {
           "org": "OpenTokenizedAssetStandard",
           "name": "community-specification-template"
-        }
-      ]
-    },
-    {
-      "display_name": "OpenDecentra-NextG",
-      "repositories": [
-        {
-          "org": "LF-Decentralized-Trust-labs",
-          "name": "opendecentra-nextg"
         }
       ]
     },
