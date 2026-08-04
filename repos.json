@@ -22,6 +22,15 @@
       ]
     },
     {
+      "display_name": "Agent Authority Conformance",
+      "repositories": [
+        {
+          "org": "aeoess",
+          "name": "aps-conformance-suite"
+        }
+      ]
+    },
+    {
       "display_name": "Agora",
       "repositories": [
         {
@@ -120,6 +129,10 @@
         {
           "org": "Briolette",
           "name": "briolette"
+        },
+        {
+          "org": "Briolette",
+          "name": "governance"
         }
       ]
     },
@@ -416,6 +429,15 @@
       ]
     },
     {
+      "display_name": "Open Verification Proof-of-Control",
+      "repositories": [
+        {
+          "org": "LFDT-OpenVerification",
+          "name": "governance"
+        }
+      ]
+    },
+    {
       "display_name": "OpenReagent",
       "repositories": [
         {
@@ -483,6 +505,10 @@
         {
           "org": "PDP-Connect",
           "name": "data-connectors"
+        },
+        {
+          "org": "PDP-Connect",
+          "name": "governance"
         }
       ]
     },
