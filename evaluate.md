@@ -1,8 +1,8 @@
 # Labs to Evaluate
 
-**Report date: 2026-08-20 (based on [activity.md](activity.md) generated 2026-08-20 00:16:46 UTC)**
+**Report date: 2026-08-21 (based on [activity.md](activity.md) generated 2026-08-21 00:18:04 UTC)**
 
-Labs listed here have had **no activity in the last three months** (no activity since 2026-05-20), but have had activity within the last six months. These labs should be evaluated for continued viability. Labs with no activity for more than six months are escalated to [at-risk.md](at-risk.md) and are not repeated here.
+Labs listed here have had **no activity in the last three months** (no activity since 2026-05-21), but have had activity within the last six months. These labs should be evaluated for continued viability. Labs with no activity for more than six months are escalated to [at-risk.md](at-risk.md) and are not repeated here.
 
 A lab's "most recent activity" is the latest of the last commit push, pull request update, or issue update across all of its tracked repositories, as reported in [activity.md](activity.md).
 
@@ -14,6 +14,7 @@ A lab's "most recent activity" is the latest of the last commit push, pull reque
 | VeltoraCore | 2026-05-07 21:39:39 | 1 |
 | Open Tokenized Asset Standard (OTAS) | 2026-05-08 13:49:29 | 1 |
 | Naryo | 2026-05-14 08:33:32 | 1 |
+| RethV | 2026-05-20 15:42:50 | 1 |
 
 ## Hyperledger Fabric Connector
 
@@ -50,3 +51,9 @@ A lab's "most recent activity" is the latest of the last commit push, pull reque
 | Repository | Last Activity | Link |
 | :--- | :--- | :--- |
 | LF-Decentralized-Trust-labs/Naryo | 2026-05-14 08:33:32 | [github.com/LF-Decentralized-Trust-labs/Naryo](https://github.com/LF-Decentralized-Trust-labs/Naryo) |
+
+## RethV
+
+| Repository | Last Activity | Link |
+| :--- | :--- | :--- |
+| LF-Decentralized-Trust-labs/rethv | 2026-05-20 15:42:50 | [github.com/LF-Decentralized-Trust-labs/rethv](https://github.com/LF-Decentralized-Trust-labs/rethv) |

@@ -1,8 +1,8 @@
 # At-Risk Labs
 
-**Report date: 2026-08-20 (based on [activity.md](activity.md) generated 2026-08-20 00:16:46 UTC)**
+**Report date: 2026-08-21 (based on [activity.md](activity.md) generated 2026-08-21 00:18:04 UTC)**
 
-Labs listed here have had **no activity in the last six months** (no activity since 2026-02-20). These labs are considered at risk of being archived or retired.
+Labs listed here have had **no activity in the last six months** (no activity since 2026-02-21). These labs are considered at risk of being archived or retired.
 
 A lab's "most recent activity" is the latest of the last commit push, pull request update, or issue update across all of its tracked repositories, as reported in [activity.md](activity.md).
 
@@ -10,7 +10,6 @@ A lab's "most recent activity" is the latest of the last commit push, pull reque
 | :--- | :--- | :--- |
 | Hyperledger Community Management Tools | 2024-08-02 15:19:04 | 1 |
 | Documentation Template | 2025-01-07 14:51:38 | 1 |
-| Contributors Site | 2026-01-11 14:43:13 | 1 |
 | Harmonia | 2026-02-05 00:00:28 | 1 |
 | Zkbk | 2026-02-19 20:28:52 | 1 |
 
@@ -25,12 +24,6 @@ A lab's "most recent activity" is the latest of the last commit push, pull reque
 | Repository | Last Activity | Link |
 | :--- | :--- | :--- |
 | hyperledger-labs/documentation-template | 2025-01-07 14:51:38 | [github.com/hyperledger-labs/documentation-template](https://github.com/hyperledger-labs/documentation-template) |
-
-## Contributors Site
-
-| Repository | Last Activity | Link |
-| :--- | :--- | :--- |
-| LF-Decentralized-Trust/contribute | 2026-01-11 14:43:13 | [github.com/LF-Decentralized-Trust/contribute](https://github.com/LF-Decentralized-Trust/contribute) |
 
 ## Harmonia
 
