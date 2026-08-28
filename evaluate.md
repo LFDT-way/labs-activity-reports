@@ -1,8 +1,8 @@
 # Labs to Evaluate
 
-**Report date: 2026-08-27 (based on [activity.md](activity.md) generated 2026-08-27 01:43:32 UTC)**
+**Report date: 2026-08-28 (based on [activity.md](activity.md) generated 2026-08-28 03:05:22 UTC)**
 
-Labs listed here have had **no activity in the last three months** (no activity since 2026-05-27), but have had activity within the last six months. These labs should be evaluated for continued viability. Labs with no activity for more than six months are escalated to [at-risk.md](at-risk.md) and are not repeated here.
+Labs listed here have had **no activity in the last three months** (no activity since 2026-05-28), but have had activity within the last six months. These labs should be evaluated for continued viability. Labs with no activity for more than six months are escalated to [at-risk.md](at-risk.md) and are not repeated here.
 
 A lab's "most recent activity" is the latest of the last commit push, pull request update, or issue update across all of its tracked repositories, as reported in [activity.md](activity.md).
 
