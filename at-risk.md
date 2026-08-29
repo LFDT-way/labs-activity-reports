@@ -1,6 +1,6 @@
 # At-Risk Labs
 
-**Report date: 2026-08-28 (based on [activity.md](activity.md) generated 2026-08-28 03:05:22 UTC)**
+**Report date: 2026-08-29 (based on [activity.md](activity.md) generated 2026-08-29 00:35:02 UTC)**
 
 Labs listed here have had **no activity in the last six months** (no activity since 2026-02-28). These labs are considered at risk of being archived or retired.
 
