@@ -1,8 +1,8 @@
 # At-Risk Labs
 
-**Report date: 2026-09-13 (based on [activity.md](activity.md) generated 2026-09-13 00:43:23 UTC)**
+**Report date: 2026-09-14 (based on [activity.md](activity.md) generated 2026-09-14 00:43:02 UTC)**
 
-Labs listed here have had **no activity in the last six months** (no activity since 2026-03-13). These labs are considered at risk of being archived or retired.
+Labs listed here have had **no activity in the last six months** (no activity since 2026-03-14). These labs are considered at risk of being archived or retired.
 
 A lab's "most recent activity" is the latest of the last commit push, pull request update, or issue update across all of its tracked repositories, as reported in [activity.md](activity.md).
 
@@ -12,6 +12,7 @@ A lab's "most recent activity" is the latest of the last commit push, pull reque
 | Documentation Template | 2025-01-07 14:51:38 | 1 |
 | Harmonia | 2026-02-05 00:00:28 | 1 |
 | Zkbk | 2026-02-19 20:28:52 | 1 |
+| Hyperledger Fabric Connector | 2026-03-13 07:46:21 | 1 |
 
 ## Hyperledger Community Management Tools
 
@@ -36,3 +37,9 @@ A lab's "most recent activity" is the latest of the last commit push, pull reque
 | Repository | Last Activity | Link |
 | :--- | :--- | :--- |
 | LF-Decentralized-Trust-labs/zkbk | 2026-02-19 20:28:52 | [github.com/LF-Decentralized-Trust-labs/zkbk](https://github.com/LF-Decentralized-Trust-labs/zkbk) |
+
+## Hyperledger Fabric Connector
+
+| Repository | Last Activity | Link |
+| :--- | :--- | :--- |
+| hyperledger-labs/hlf-connector | 2026-03-13 07:46:21 | [github.com/hyperledger-labs/hlf-connector](https://github.com/hyperledger-labs/hlf-connector) |

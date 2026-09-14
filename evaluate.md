@@ -1,26 +1,19 @@
 # Labs to Evaluate
 
-**Report date: 2026-09-13 (based on [activity.md](activity.md) generated 2026-09-13 00:43:23 UTC)**
+**Report date: 2026-09-14 (based on [activity.md](activity.md) generated 2026-09-14 00:43:02 UTC)**
 
-Labs listed here have had **no activity in the last three months** (no activity since 2026-06-13), but have had activity within the last six months. These labs should be evaluated for continued viability. Labs with no activity for more than six months are escalated to [at-risk.md](at-risk.md) and are not repeated here.
+Labs listed here have had **no activity in the last three months** (no activity since 2026-06-14), but have had activity within the last six months. These labs should be evaluated for continued viability. Labs with no activity for more than six months are escalated to [at-risk.md](at-risk.md) and are not repeated here.
 
 A lab's "most recent activity" is the latest of the last commit push, pull request update, or issue update across all of its tracked repositories, as reported in [activity.md](activity.md).
 
 | Lab | Most Recent Activity | Repositories |
 | :--- | :--- | :--- |
-| Hyperledger Fabric Connector | 2026-03-13 07:46:21 | 1 |
 | Verazt | 2026-04-06 10:52:51 | 1 |
 | Proof Of Process | 2026-05-02 12:50:05 | 1 |
 | VeltoraCore | 2026-05-07 21:39:39 | 1 |
 | Open Tokenized Asset Standard (OTAS) | 2026-05-08 13:49:29 | 1 |
 | Naryo | 2026-05-14 08:33:32 | 1 |
 | RethV | 2026-05-20 15:42:50 | 1 |
-
-## Hyperledger Fabric Connector
-
-| Repository | Last Activity | Link |
-| :--- | :--- | :--- |
-| hyperledger-labs/hlf-connector | 2026-03-13 07:46:21 | [github.com/hyperledger-labs/hlf-connector](https://github.com/hyperledger-labs/hlf-connector) |
 
 ## Verazt
 
