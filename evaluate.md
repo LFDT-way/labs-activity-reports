@@ -1,8 +1,8 @@
 # Labs to Evaluate
 
-**Report date: 2026-09-26 (based on [activity.md](activity.md) generated 2026-09-26 00:38:20 UTC)**
+**Report date: 2026-09-27 (based on [activity.md](activity.md) generated 2026-09-27 00:45:27 UTC)**
 
-Labs listed here have had **no activity in the last three months** (no activity since 2026-06-26), but have had activity within the last six months. These labs should be evaluated for continued viability. Labs with no activity for more than six months are escalated to [at-risk.md](at-risk.md) and are not repeated here.
+Labs listed here have had **no activity in the last three months** (no activity since 2026-06-27), but have had activity within the last six months. These labs should be evaluated for continued viability. Labs with no activity for more than six months are escalated to [at-risk.md](at-risk.md) and are not repeated here.
 
 A lab's "most recent activity" is the latest of the last commit push, pull request update, or issue update across all of its tracked repositories, as reported in [activity.md](activity.md).
 
@@ -15,6 +15,7 @@ A lab's "most recent activity" is the latest of the last commit push, pull reque
 | RethV | 2026-05-20 15:42:50 | 1 |
 | IPRAM | 2026-06-23 10:16:26 | 3 |
 | OpenReagent | 2026-06-25 04:12:27 | 1 |
+| Briolette | 2026-06-26 13:02:13 | 2 |
 
 ## Verazt
 
@@ -59,3 +60,10 @@ A lab's "most recent activity" is the latest of the last commit push, pull reque
 | Repository | Last Activity | Link |
 | :--- | :--- | :--- |
 | OpenReagent/openreagent | 2026-06-25 04:12:27 | [github.com/OpenReagent/openreagent](https://github.com/OpenReagent/openreagent) |
+
+## Briolette
+
+| Repository | Last Activity | Link |
+| :--- | :--- | :--- |
+| Briolette/briolette | 2026-06-26 13:02:13 | [github.com/Briolette/briolette](https://github.com/Briolette/briolette) |
+| Briolette/governance | 2026-06-26 12:10:21 | [github.com/Briolette/governance](https://github.com/Briolette/governance) |
