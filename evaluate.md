@@ -1,8 +1,8 @@
 # Labs to Evaluate
 
-**Report date: 2026-09-28 (based on [activity.md](activity.md) generated 2026-09-28 00:45:08 UTC)**
+**Report date: 2026-09-29 (based on [activity.md](activity.md) generated 2026-09-29 00:41:54 UTC)**
 
-Labs listed here have had **no activity in the last three months** (no activity since 2026-06-28), but have had activity within the last six months. These labs should be evaluated for continued viability. Labs with no activity for more than six months are escalated to [at-risk.md](at-risk.md) and are not repeated here.
+Labs listed here have had **no activity in the last three months** (no activity since 2026-06-29), but have had activity within the last six months. These labs should be evaluated for continued viability. Labs with no activity for more than six months are escalated to [at-risk.md](at-risk.md) and are not repeated here.
 
 A lab's "most recent activity" is the latest of the last commit push, pull request update, or issue update across all of its tracked repositories, as reported in [activity.md](activity.md).
 
@@ -13,6 +13,7 @@ A lab's "most recent activity" is the latest of the last commit push, pull reque
 | VeltoraCore | 2026-05-07 21:39:39 | 1 |
 | Open Tokenized Asset Standard (OTAS) | 2026-05-08 13:49:29 | 1 |
 | RethV | 2026-05-20 15:42:50 | 1 |
+| Caliper | 2026-06-16 19:15:28 | 2 |
 | IPRAM | 2026-06-23 10:16:26 | 3 |
 | OpenReagent | 2026-06-25 04:12:27 | 1 |
 | Briolette | 2026-06-26 13:02:13 | 2 |
@@ -46,6 +47,13 @@ A lab's "most recent activity" is the latest of the last commit push, pull reque
 | Repository | Last Activity | Link |
 | :--- | :--- | :--- |
 | LF-Decentralized-Trust-labs/rethv | 2026-05-20 15:42:50 | [github.com/LF-Decentralized-Trust-labs/rethv](https://github.com/LF-Decentralized-Trust-labs/rethv) |
+
+## Caliper
+
+| Repository | Last Activity | Link |
+| :--- | :--- | :--- |
+| hyperledger-caliper/caliper | 2026-06-16 19:15:28 | [github.com/hyperledger-caliper/caliper](https://github.com/hyperledger-caliper/caliper) |
+| hyperledger-caliper/caliper-benchmarks | 2025-06-12 07:37:52 | [github.com/hyperledger-caliper/caliper-benchmarks](https://github.com/hyperledger-caliper/caliper-benchmarks) |
 
 ## IPRAM
 
