@@ -1,14 +1,13 @@
 # Labs to Evaluate
 
-**Report date: 2026-10-03 (based on [activity.md](activity.md) generated 2026-10-03 00:38:57 UTC)**
+**Report date: 2026-10-04 (based on [activity.md](activity.md) generated 2026-10-04 01:16:51 UTC)**
 
-Labs listed here have had **no activity in the last three months** (no activity since 2026-07-03), but have had activity within the last six months. These labs should be evaluated for continued viability. Labs with no activity for more than six months are escalated to [at-risk.md](at-risk.md) and are not repeated here.
+Labs listed here have had **no activity in the last three months** (no activity since 2026-07-04), but have had activity within the last six months. These labs should be evaluated for continued viability. Labs with no activity for more than six months are escalated to [at-risk.md](at-risk.md) and are not repeated here.
 
 A lab's "most recent activity" is the latest of the last commit push, pull request update, or issue update across all of its tracked repositories, as reported in [activity.md](activity.md).
 
 | Lab | Most Recent Activity | Repositories |
 | :--- | :--- | :--- |
-| Verazt | 2026-04-06 10:52:51 | 1 |
 | Proof Of Process | 2026-05-02 12:50:05 | 1 |
 | VeltoraCore | 2026-05-07 21:39:39 | 1 |
 | Open Tokenized Asset Standard (OTAS) | 2026-05-08 13:49:29 | 1 |
@@ -17,12 +16,6 @@ A lab's "most recent activity" is the latest of the last commit push, pull reque
 | IPRAM | 2026-06-23 10:16:26 | 3 |
 | OpenReagent | 2026-06-25 04:12:27 | 1 |
 | Briolette | 2026-06-26 13:02:13 | 2 |
-
-## Verazt
-
-| Repository | Last Activity | Link |
-| :--- | :--- | :--- |
-| LF-Decentralized-Trust-labs/verazt | 2026-04-06 10:52:51 | [github.com/LF-Decentralized-Trust-labs/verazt](https://github.com/LF-Decentralized-Trust-labs/verazt) |
 
 ## Proof Of Process
 
