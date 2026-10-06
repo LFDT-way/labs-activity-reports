@@ -1,8 +1,8 @@
 # At-Risk Labs
 
-**Report date: 2026-10-05 (based on [activity.md](activity.md) generated 2026-10-05 00:45:51 UTC)**
+**Report date: 2026-10-06 (based on [activity.md](activity.md) generated 2026-10-06 00:42:11 UTC)**
 
-Labs listed here have had **no activity in the last six months** (no activity since 2026-04-05). These labs are considered at risk of being archived or retired.
+Labs listed here have had **no activity in the last six months** (no activity since 2026-04-06). These labs are considered at risk of being archived or retired.
 
 A lab's "most recent activity" is the latest of the last commit push, pull request update, or issue update across all of its tracked repositories, as reported in [activity.md](activity.md).
 
