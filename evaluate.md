@@ -1,8 +1,8 @@
 # Labs to Evaluate
 
-**Report date: 2026-10-17 (based on [activity.md](activity.md) generated 2026-10-17 00:36:06 UTC)**
+**Report date: 2026-10-18 (based on [activity.md](activity.md) generated 2026-10-18 00:40:26 UTC)**
 
-Labs listed here have had **no activity in the last three months** (no activity since 2026-07-17), but have had activity within the last six months. These labs should be evaluated for continued viability. Labs with no activity for more than six months are escalated to [at-risk.md](at-risk.md) and are not repeated here.
+Labs listed here have had **no activity in the last three months** (no activity since 2026-07-18), but have had activity within the last six months. These labs should be evaluated for continued viability. Labs with no activity for more than six months are escalated to [at-risk.md](at-risk.md) and are not repeated here.
 
 A lab's "most recent activity" is the latest of the last commit push, pull request update, or issue update across all of its tracked repositories, as reported in [activity.md](activity.md).
 
@@ -15,6 +15,7 @@ A lab's "most recent activity" is the latest of the last commit push, pull reque
 | IPRAM | 2026-06-23 10:16:26 | 3 |
 | OpenReagent | 2026-06-25 04:12:27 | 1 |
 | Briolette | 2026-06-26 13:02:13 | 2 |
+| ChainLaunch | 2026-07-17 10:06:41 | 1 |
 
 ## Proof Of Process
 
@@ -60,3 +61,9 @@ A lab's "most recent activity" is the latest of the last commit push, pull reque
 | :--- | :--- | :--- |
 | Briolette/briolette | 2026-06-26 13:02:13 | [github.com/Briolette/briolette](https://github.com/Briolette/briolette) |
 | Briolette/governance | 2026-06-26 12:10:21 | [github.com/Briolette/governance](https://github.com/Briolette/governance) |
+
+## ChainLaunch
+
+| Repository | Last Activity | Link |
+| :--- | :--- | :--- |
+| LF-Decentralized-Trust-labs/chaindeploy | 2026-07-17 10:06:41 | [github.com/LF-Decentralized-Trust-labs/chaindeploy](https://github.com/LF-Decentralized-Trust-labs/chaindeploy) |
