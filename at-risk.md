@@ -1,6 +1,6 @@
 # At-Risk Labs
 
-**Report date: 2026-10-28 (based on [activity.md](activity.md) generated 2026-10-28 00:28:39 UTC)**
+**Report date: 2026-10-28 (based on [activity.md](activity.md) generated 2026-10-28 11:06:09 UTC)**
 
 Labs listed here have had **no activity in the last six months** (no activity since 2026-04-28). These labs are considered at risk of being archived or retired.
 
@@ -10,7 +10,6 @@ A lab's "most recent activity" is the latest of the last commit push, pull reque
 | :--- | :--- | :--- |
 | Hyperledger Community Management Tools | 2024-08-02 15:19:04 | 1 |
 | Documentation Template | 2025-01-07 14:51:38 | 1 |
-| Harmonia | 2026-02-05 00:00:28 | 1 |
 | Zkbk | 2026-02-19 20:28:52 | 1 |
 | Hyperledger Fabric Connector | 2026-03-13 07:46:21 | 1 |
 
@@ -25,12 +24,6 @@ A lab's "most recent activity" is the latest of the last commit push, pull reque
 | Repository | Last Activity | Link |
 | :--- | :--- | :--- |
 | hyperledger-labs/documentation-template | 2025-01-07 14:51:38 | [github.com/hyperledger-labs/documentation-template](https://github.com/hyperledger-labs/documentation-template) |
-
-## Harmonia
-
-| Repository | Last Activity | Link |
-| :--- | :--- | :--- |
-| hyperledger-labs/harmonia | 2026-02-05 00:00:28 | [github.com/hyperledger-labs/harmonia](https://github.com/hyperledger-labs/harmonia) |
 
 ## Zkbk
 

@@ -18,6 +18,10 @@
         {
           "org": "Accountable-Impact-Commons",
           "name": "infocomm"
+        },
+        {
+          "org": "Accountable-Impact-Commons",
+          "name": "accountable-impact-commons.github.io"
         }
       ]
     },
@@ -25,11 +29,11 @@
       "display_name": "Agent Passport System",
       "repositories": [
         {
-          "org": "aeoess",
+          "org": "Agent-Authority-Conformance",
           "name": "aps-conformance-suite"
         },
         {
-          "org": "LFDT-Agent-Passport-System",
+          "org": "Agent-Authority-Conformance",
           "name": "governance"
         }
       ]
@@ -128,6 +132,27 @@
       ]
     },
     {
+      "display_name": "Blockchain Decentralisation Index",
+      "repositories": [
+        {
+          "org": "Blockchain-Decentralisation-Index",
+          "name": "consensus-decentralization"
+        },
+        {
+          "org": "Blockchain-Decentralisation-Index",
+          "name": "network-decentralization"
+        },
+        {
+          "org": "Blockchain-Decentralisation-Index",
+          "name": "software-decentralization"
+        },
+        {
+          "org": "Blockchain-Decentralisation-Index",
+          "name": "tokenomics-decentralization"
+        }
+      ]
+    },
+    {
       "display_name": "Briolette",
       "repositories": [
         {
@@ -185,10 +210,6 @@
         {
           "org": "hyperledger-cello",
           "name": "cello"
-        },
-        {
-          "org": "hyperledger-cello",
-          "name": "cello-analytics"
         }
       ]
     },
@@ -198,6 +219,32 @@
         {
           "org": "LF-Decentralized-Trust-labs",
           "name": "chaindeploy"
+        }
+      ]
+    },
+    {
+      "display_name": "CLPR",
+      "repositories": [
+        {
+          "org": "LFDT-CLPR",
+          "name": "clpr-endpoint"
+        },
+        {
+          "org": "LFDT-CLPR",
+          "name": "clpr-smart-contracts"
+        },
+        {
+          "org": "LFDT-CLPR",
+          "name": "clpr-spec"
+        }
+      ]
+    },
+    {
+      "display_name": "Composable Evidence Criteria",
+      "repositories": [
+        {
+          "org": "Composable-Evidence-Criteria",
+          "name": "action-ref-conformance"
         }
       ]
     },
@@ -238,6 +285,15 @@
       ]
     },
     {
+      "display_name": "Fabric Chaincode Python",
+      "repositories": [
+        {
+          "org": "hyperledger",
+          "name": "fabric-chaincode-python"
+        }
+      ]
+    },
+    {
       "display_name": "Fabric labs",
       "repositories": [
         {
@@ -265,10 +321,6 @@
           "name": "fabric-smart-client"
         },
         {
-          "org": "hyperledger-labs",
-          "name": "fabric-token-sdk"
-        },
-        {
           "org": "LF-Decentralized-Trust-labs",
           "name": "fabric-chaincode-rust"
         },
@@ -287,6 +339,24 @@
       ]
     },
     {
+      "display_name": "Fabric-X-Migrate",
+      "repositories": [
+        {
+          "org": "hyperledger",
+          "name": "fabric-x-migrate"
+        }
+      ]
+    },
+    {
+      "display_name": "FabricOps",
+      "repositories": [
+        {
+          "org": "LF-Decentralized-Trust-labs",
+          "name": "FabricOps"
+        }
+      ]
+    },
+    {
       "display_name": "Generic zk-SNARKs",
       "repositories": [
         {
@@ -301,15 +371,6 @@
         {
           "org": "LF-Decentralized-Trust-labs",
           "name": "gitmesh"
-        }
-      ]
-    },
-    {
-      "display_name": "Harmonia",
-      "repositories": [
-        {
-          "org": "hyperledger-labs",
-          "name": "harmonia"
         }
       ]
     },
@@ -429,6 +490,14 @@
         {
           "org": "OpenTokenizedAssetStandard",
           "name": "community-specification-template"
+        },
+        {
+          "org": "OpenTokenizedAssetStandard",
+          "name": "cross-rail-dvp"
+        },
+        {
+          "org": "OpenTokenizedAssetStandard",
+          "name": "whitepaper"
         }
       ]
     },
@@ -436,17 +505,12 @@
       "display_name": "Open Verification Proof-of-Control",
       "repositories": [
         {
-          "org": "LFDT-OpenVerification",
+          "org": "LFDT-ProofOfControl",
           "name": "governance"
-        }
-      ]
-    },
-    {
-      "display_name": "OpenReagent",
-      "repositories": [
+        },
         {
-          "org": "OpenReagent",
-          "name": "openreagent"
+          "org": "LFDT-ProofOfControl",
+          "name": "ov-poc-standard"
         }
       ]
     },
@@ -492,6 +556,26 @@
         {
           "org": "OpenVTC",
           "name": "wiki"
+        },
+        {
+          "org": "OpenVTC",
+          "name": "predicate-credential-system"
+        },
+        {
+          "org": "OpenVTC",
+          "name": "probablistic-sampling-for-connection-vcs"
+        },
+        {
+          "org": "OpenVTC",
+          "name": "tsp-conformance"
+        },
+        {
+          "org": "OpenVTC",
+          "name": "verifiable-git-infrastructure"
+        },
+        {
+          "org": "OpenVTC",
+          "name": "vta-agent-memory"
         }
       ]
     },
@@ -513,6 +597,15 @@
         {
           "org": "PDP-Connect",
           "name": "governance"
+        }
+      ]
+    },
+    {
+      "display_name": "Permissioned Privacy Control",
+      "repositories": [
+        {
+          "org": "LFDT-Permissioned-Privacy-Control",
+          "name": "permissioned-privacy-control"
         }
       ]
     },
@@ -580,11 +673,33 @@
       ]
     },
     {
+      "display_name": "Sigvelis",
+      "repositories": [
+        {
+          "org": "Sigvelis",
+          "name": "sigvelis"
+        }
+      ]
+    },
+    {
       "display_name": "SmartBFT",
       "repositories": [
         {
-          "org": "hyperledger-labs",
+          "org": "hyperledger",
           "name": "SmartBFT"
+        }
+      ]
+    },
+    {
+      "display_name": "Smoot",
+      "repositories": [
+        {
+          "org": "LFDT-Smoot",
+          "name": "bridge"
+        },
+        {
+          "org": "LFDT-Smoot",
+          "name": "signare"
         }
       ]
     },
@@ -614,10 +729,15 @@
         {
           "org": "hyperledger-solang",
           "name": "solang-substrate-ci"
-        },
+        }
+      ]
+    },
+    {
+      "display_name": "Tegaris Application Privacy",
+      "repositories": [
         {
-          "org": "hyperledger-solang",
-          "name": "solang-vscode"
+          "org": "LFDT-tegaris",
+          "name": "tegaris"
         }
       ]
     },

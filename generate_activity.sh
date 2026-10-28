@@ -1,104 +1,205 @@
 #!/bin/bash
+#
+# Generates activity.md from repos.json by querying the GitHub API, then runs
+# generate_reports.py to derive evaluate.md and at-risk.md.
+#
+# Called by .github/workflows/activity-mirror.yml, and runnable locally.
+# Requires gh (authenticated), jq, python3, and a GNU date.
+#
 set -e
 
-# Use gdate on macOS if available
-if command -v gdate > /dev/null; then
-  DATE_CMD="gdate"
+# The report is diffed against its previous version to colour changed dates, so
+# the output has to be byte-identical between a runner and a laptop. Two things
+# would otherwise differ:
+#   LC_ALL - sort(1) collation decides the order of the "## Lab" sections.
+#            A GitHub runner has no locale set, so sections come out in C order
+#            ("AIFAQ" before "Accountable"); a macOS shell would sort them the
+#            other way round and rewrite the whole file.
+#   TZ     - every timestamp is rendered in local time.
+export LC_ALL=C
+export TZ=UTC
+
+# date -d is a GNU extension; on macOS that is gdate from coreutils.
+if date -d @0 "+%s" > /dev/null 2>&1; then
+    DATE_CMD="date"
+elif command -v gdate > /dev/null 2>&1; then
+    DATE_CMD="gdate"
 else
-  DATE_CMD="date"
+    echo "error: need a GNU date supporting -d (macOS: brew install coreutils)" >&2
+    exit 1
 fi
 
-# Extract previous activity if it exists
+for cmd in gh jq python3; do
+    command -v "$cmd" > /dev/null 2>&1 || { echo "error: $cmd not found" >&2; exit 1; }
+done
+
+# Dates that changed since the last run are wrapped in a LaTeX \color macro,
+# which GitHub renders inside $...$. The backslashes must be doubled to survive
+# GitHub's markdown parser, so keep them as a literal to avoid another layer of
+# shell escaping below.
+BS='\\'
+
+# Strip leading and trailing whitespace. Deliberately not "| xargs": xargs runs
+# /bin/echo, and on macOS that echo reads the \c of a previously written
+# \color{...} cell as "stop output here". That silently truncated the cell to
+# "$", losing the old date, so every coloured row was re-flagged as new on the
+# next run.
+trim() {
+    local s=$1
+    s=${s#"${s%%[![:space:]]*}"}
+    s=${s%"${s##*[![:space:]]}"}
+    printf '%s' "$s"
+}
+
+# Reduce a table cell to the timestamp it contains, dropping any \color wrapper.
+# "n/a" has no digits and correctly yields the empty string.
+cell_timestamp() {
+    trim "$(printf '%s' "$1" | sed -e 's/[^0-9 :-]//g' -e 's/  */ /g')"
+}
+
+# Extract the previous report so changed values can be coloured.
+# Format: repo|commit|pr|issue
 PREVIOUS_ACTIVITY=$(mktemp)
+ALL_REPOS_TMP=$(mktemp)
+trap 'rm -f "$ALL_REPOS_TMP" "$PREVIOUS_ACTIVITY"' EXIT
+
 if [ -f activity.md ]; then
     HEADER=$(grep -m 1 "^| " activity.md || true)
-    if echo "$HEADER" | grep -q "Activity Date"; then
-        grep "^| " activity.md | grep -v "Activity Date" | grep -v ":---" | while read -r line; do
-            date_part=$(echo "$line" | cut -d'|' -f2 | xargs)
-            clean_date=$(echo "$date_part" | sed 's/[^0-9 :-]//g' | sed 's/^ *//;s/ *$//')
-            repo_part=$(echo "$line" | cut -d'|' -f3 | xargs)
-            [ -n "$repo_part" ] && [ -n "$clean_date" ] && echo "$repo_part|$clean_date||" >> "$PREVIOUS_ACTIVITY"
+    if printf '%s' "$HEADER" | grep -q "Activity Date"; then
+        # Pre-2025 format: | Activity Date | Repository | Link |
+        grep "^| " activity.md | grep -v "Activity Date" | grep -v ":---" | while IFS= read -r line; do
+            clean_date=$(cell_timestamp "$(printf '%s' "$line" | cut -d'|' -f2)")
+            repo_part=$(trim "$(printf '%s' "$line" | cut -d'|' -f3)")
+            if [ -n "$repo_part" ] && [ -n "$clean_date" ]; then
+                printf '%s|%s||\n' "$repo_part" "$clean_date" >> "$PREVIOUS_ACTIVITY"
+            fi
         done
     else
-        grep "^| " activity.md | grep -v "Repository" | grep -v ":---" | while read -r line; do
-            repo_part=$(echo "$line" | cut -d'|' -f2 | xargs)
-            commit_part=$(echo "$line" | cut -d'|' -f3 | xargs | sed 's/[^0-9 :-]//g' | xargs)
-            pr_part=$(echo "$line" | cut -d'|' -f4 | xargs | sed 's/[^0-9 :-]//g' | xargs)
-            issue_part=$(echo "$line" | cut -d'|' -f5 | xargs | sed 's/[^0-9 :-]//g' | xargs)
-            [ -n "$repo_part" ] && echo "$repo_part|$commit_part|$pr_part|$issue_part" >> "$PREVIOUS_ACTIVITY"
+        # Current format: | Repository | Latest Commit | Latest PR | Latest Issue | Link |
+        grep "^| " activity.md | grep -v "Repository" | grep -v ":---" | while IFS= read -r line; do
+            repo_part=$(trim "$(printf '%s' "$line" | cut -d'|' -f2)")
+            commit_part=$(cell_timestamp "$(printf '%s' "$line" | cut -d'|' -f3)")
+            pr_part=$(cell_timestamp "$(printf '%s' "$line" | cut -d'|' -f4)")
+            issue_part=$(cell_timestamp "$(printf '%s' "$line" | cut -d'|' -f5)")
+            if [ -n "$repo_part" ]; then
+                printf '%s|%s|%s|%s\n' "$repo_part" "$commit_part" "$pr_part" "$issue_part" >> "$PREVIOUS_ACTIVITY"
+            fi
         done
     fi
 fi
 
-# Header
 cat <<EOF > activity.md
 # Labs Activity Sorted by Project (Lab)
 
 **Last updated: $($DATE_CMD -u "+%Y-%m-%d %H:%M:%S UTC")**
 
 This report is automatically generated by querying the GitHub API for the most recent activity (commits, pull requests, and issues) in the tracked repositories. Projects are grouped by their display names.
+
 EOF
 
-ALL_REPOS_TMP=$(mktemp)
 QUERY='query($owner:String!, $name:String!) {
   repository(owner: $owner, name: $name) {
     pushedAt
-    pullRequests(first: 1, orderBy: {field: UPDATED_AT, direction: DESC}) { nodes { updatedAt } }
-    issues(first: 1, orderBy: {field: UPDATED_AT, direction: DESC}) { nodes { updatedAt } }
+    pullRequests(first: 1, orderBy: {field: UPDATED_AT, direction: DESC}) {
+      nodes {
+        updatedAt
+      }
+    }
+    issues(first: 1, orderBy: {field: UPDATED_AT, direction: DESC}) {
+      nodes {
+        updatedAt
+      }
+    }
   }
 }'
 
-echo "Fetching activity..."
-NUM_LABS=$(jq '.labs | length' repos.json)
-for ((i=0; i<NUM_LABS; i++)); do
-    DISPLAY_NAME=$(jq -r --argjson i "$i" '.labs[$i].display_name' repos.json)
-    NUM_REPOS=$(jq --argjson i "$i" ".labs[$i].repositories | length" repos.json)
-    for ((j=0; j<NUM_REPOS; j++)); do
-        ORG=$(jq -r --argjson i "$i" --argjson j "$j" '.labs[$i].repositories[$j].org' repos.json)
-        REPO=$(jq -r --argjson i "$i" --argjson j "$j" '.labs[$i].repositories[$j].name' repos.json)
-        echo "  Checking ${ORG}/${REPO} (${DISPLAY_NAME})..."
-        RESULT=$(gh api graphql -f query="$QUERY" -F owner="$ORG" -F name="$REPO" --jq '.data.repository' 2>/dev/null || echo "null")
-        if [ "$RESULT" != "null" ] && [ -n "$RESULT" ]; then
-            PUSHED_AT=$(echo "$RESULT" | jq -r '.pushedAt // empty')
-            PR_UPDATED_AT=$(echo "$RESULT" | jq -r '.pullRequests.nodes[0].updatedAt // empty')
-            ISSUE_UPDATED_AT=$(echo "$RESULT" | jq -r '.issues.nodes[0].updatedAt // empty')
-            COMMIT_TS=0; PR_TS=0; ISSUE_TS=0
-            [ -n "$PUSHED_AT" ] && COMMIT_TS=$($DATE_CMD -d "$PUSHED_AT" "+%s" 2>/dev/null || echo 0)
-            [ -n "$PR_UPDATED_AT" ] && PR_TS=$($DATE_CMD -d "$PR_UPDATED_AT" "+%s" 2>/dev/null || echo 0)
-            [ -n "$ISSUE_UPDATED_AT" ] && ISSUE_TS=$($DATE_CMD -d "$ISSUE_UPDATED_AT" "+%s" 2>/dev/null || echo 0)
-            MAX_TS=$COMMIT_TS; [ $PR_TS -gt $MAX_TS ] && MAX_TS=$PR_TS; [ $ISSUE_TS -gt $MAX_TS ] && MAX_TS=$ISSUE_TS
-            echo "$MAX_TS|$COMMIT_TS|$PR_TS|$ISSUE_TS|$ORG|$REPO|$DISPLAY_NAME" >> "$ALL_REPOS_TMP"
-        fi
-    done
-done
+# Epoch seconds per repository, so sections can be sorted most-recent first.
+# Format: max_ts|commit_ts|pr_ts|issue_ts|org|repo|display_name
+echo "Fetching activity for all repositories..."
 
-LAB_NAMES=$(jq -r '.labs[].display_name' repos.json | sort -u)
-IFS=$'\n'
-for lab in $LAB_NAMES; do
-    if grep -q "|$lab$" "$ALL_REPOS_TMP"; then
-        echo "" >> activity.md
-        echo "## $lab" >> activity.md
-        echo "| Repository | Latest Commit | Latest PR | Latest Issue | Link |" >> activity.md
-        echo "| :--- | :--- | :--- | :--- | :--- |" >> activity.md
-        grep "|$lab$" "$ALL_REPOS_TMP" | sort -rn | while IFS='|' read max_ts commit_ts pr_ts issue_ts org repo display_name; do
-            repo_full="$org/$repo"
-            PREV_LINE=$(grep "^$repo_full|" "$PREVIOUS_ACTIVITY" | head -n 1 || true)
-            p_commit=$(echo "$PREV_LINE" | cut -d'|' -f2); p_pr=$(echo "$PREV_LINE" | cut -d'|' -f3); p_issue=$(echo "$PREV_LINE" | cut -d'|' -f4)
-            
-            format_date() {
-                local ts=$1; local prev=$2
-                [ "$ts" -eq 0 ] && echo "n/a" && return
-                local ds=$($DATE_CMD -d "@$ts" "+%Y-%m-%d %H:%M:%S")
-                if [ -z "$prev" ]; then echo "$\color{blue}{\text{${ds}}}$"
-                elif [ "$prev" != "$ds" ]; then echo "$\color{green}{\text{${ds}}}$"
-                else echo "$ds"; fi
-            }
-            
-            printf "| %s | %s | %s | %s | [github.com/%s/%s](https://github.com/%s/%s) |\n" \
-                "$repo_full" "$(format_date "$commit_ts" "$p_commit")" "$(format_date "$pr_ts" "$p_pr")" "$(format_date "$issue_ts" "$p_issue")" "$org" "$repo" "$org" "$repo" >> activity.md
-        done
+to_epoch() {
+    [ -n "$1" ] || { printf '0'; return; }
+    $DATE_CMD -d "$1" "+%s" 2>/dev/null || printf '0'
+}
+
+FAILED=0
+while IFS=$'\t' read -r DISPLAY_NAME ORG REPO; do
+    echo "  Checking ${ORG}/${REPO} (${DISPLAY_NAME})..."
+
+    RESULT=$(gh api graphql -f query="$QUERY" -F owner="$ORG" -F name="$REPO" --jq '.data.repository' 2>/dev/null || echo "null")
+    if [ "$RESULT" = "null" ] || [ -z "$RESULT" ]; then
+        echo "    Failed to fetch data for ${ORG}/${REPO}"
+        FAILED=$((FAILED + 1))
+        continue
     fi
+
+    COMMIT_TS=$(to_epoch "$(printf '%s' "$RESULT" | jq -r '.pushedAt // empty')")
+    PR_TS=$(to_epoch "$(printf '%s' "$RESULT" | jq -r '.pullRequests.nodes[0].updatedAt // empty')")
+    ISSUE_TS=$(to_epoch "$(printf '%s' "$RESULT" | jq -r '.issues.nodes[0].updatedAt // empty')")
+
+    MAX_TS=$COMMIT_TS
+    if [ "$PR_TS" -gt "$MAX_TS" ]; then MAX_TS=$PR_TS; fi
+    if [ "$ISSUE_TS" -gt "$MAX_TS" ]; then MAX_TS=$ISSUE_TS; fi
+
+    printf '%s|%s|%s|%s|%s|%s|%s\n' \
+        "$MAX_TS" "$COMMIT_TS" "$PR_TS" "$ISSUE_TS" "$ORG" "$REPO" "$DISPLAY_NAME" >> "$ALL_REPOS_TMP"
+done < <(jq -r '.labs[] | .display_name as $lab | .repositories[] | "\($lab)\t\(.org)\t\(.name)"' repos.json)
+
+# Render one section per lab, repositories most-recently-active first.
+jq -r '.labs[].display_name' repos.json | sort -u | while IFS= read -r lab; do
+    if ! awk -F'|' -v lab="$lab" '$7 == lab { found = 1 } END { exit !found }' "$ALL_REPOS_TMP"; then
+        continue
+    fi
+
+    echo "Generating section for Lab: $lab..."
+    {
+        echo "## $lab"
+        echo "| Repository | Latest Commit | Latest PR | Latest Issue | Link |"
+        echo "| :--- | :--- | :--- | :--- | :--- |"
+    } >> activity.md
+
+    awk -F'|' -v lab="$lab" '$7 == lab' "$ALL_REPOS_TMP" | sort -rn |
+        while IFS='|' read -r max_ts commit_ts pr_ts issue_ts org repo display_name; do
+            repo_full="$org/$repo"
+
+            # Exact field match: repository names contain dots, which a grep
+            # pattern would treat as wildcards.
+            PREV_LINE=$(awk -F'|' -v r="$repo_full" '$1 == r { print; exit }' "$PREVIOUS_ACTIVITY")
+            p_commit=$(printf '%s' "$PREV_LINE" | cut -d'|' -f2)
+            p_pr=$(printf '%s' "$PREV_LINE" | cut -d'|' -f3)
+            p_issue=$(printf '%s' "$PREV_LINE" | cut -d'|' -f4)
+
+            format_date() {
+                local ts=$1
+                local prev=$2
+                if [ -z "$ts" ] || [ "$ts" -eq 0 ]; then
+                    printf 'n/a'
+                    return
+                fi
+                local ds
+                ds=$($DATE_CMD -d "@$ts" "+%Y-%m-%d %H:%M:%S")
+                if [ -z "$prev" ]; then
+                    printf '$%scolor{blue}{%stext{%s}}$' "$BS" "$BS" "$ds"
+                elif [ "$prev" != "$ds" ]; then
+                    printf '$%scolor{green}{%stext{%s}}$' "$BS" "$BS" "$ds"
+                else
+                    printf '%s' "$ds"
+                fi
+            }
+
+            printf "| %s | %s | %s | %s | [github.com/%s/%s](https://github.com/%s/%s) |\n" \
+                "$repo_full" \
+                "$(format_date "$commit_ts" "$p_commit")" \
+                "$(format_date "$pr_ts" "$p_pr")" \
+                "$(format_date "$issue_ts" "$p_issue")" \
+                "$org" "$repo" "$org" "$repo" >> activity.md
+        done
+
+    echo "" >> activity.md
 done
-rm "$ALL_REPOS_TMP" "$PREVIOUS_ACTIVITY"
 
 python3 generate_reports.py
+
+if [ "$FAILED" -gt 0 ]; then
+    echo "warning: $FAILED repository/repositories could not be fetched" >&2
+fi
