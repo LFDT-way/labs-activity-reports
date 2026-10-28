@@ -3,6 +3,10 @@
 # Generates activity.md from repos.json by querying the GitHub API, then runs
 # generate_reports.py to derive evaluate.md and at-risk.md.
 #
+# Repositories listed in excluded-repos.json (optional) are skipped: they are
+# neither queried nor reported. A lab whose every repository is excluded drops
+# out of all three reports.
+#
 # Called by .github/workflows/activity-mirror.yml, and runnable locally.
 # Requires gh (authenticated), jq, python3, and a GNU date.
 #
@@ -113,6 +117,14 @@ QUERY='query($owner:String!, $name:String!) {
   }
 }'
 
+# Repositories to skip entirely. Matched case-insensitively, since GitHub
+# org and repository names are.
+EXCLUDED_JSON='{"excluded":[]}'
+if [ -f excluded-repos.json ]; then
+    EXCLUDED_JSON=$(cat excluded-repos.json)
+    jq -r '.excluded[] | "  Excluding \(.org)/\(.name)"' excluded-repos.json
+fi
+
 # Epoch seconds per repository, so sections can be sorted most-recent first.
 # Format: max_ts|commit_ts|pr_ts|issue_ts|org|repo|display_name
 echo "Fetching activity for all repositories..."
@@ -143,7 +155,14 @@ while IFS=$'\t' read -r DISPLAY_NAME ORG REPO; do
 
     printf '%s|%s|%s|%s|%s|%s|%s\n' \
         "$MAX_TS" "$COMMIT_TS" "$PR_TS" "$ISSUE_TS" "$ORG" "$REPO" "$DISPLAY_NAME" >> "$ALL_REPOS_TMP"
-done < <(jq -r '.labs[] | .display_name as $lab | .repositories[] | "\($lab)\t\(.org)\t\(.name)"' repos.json)
+done < <(jq -r --argjson ex "$EXCLUDED_JSON" '
+    (($ex.excluded // []) | map((.org + "/" + .name) | ascii_downcase)) as $skip
+    | .labs[]
+    | .display_name as $lab
+    | .repositories[]
+    | select((((.org + "/" + .name) | ascii_downcase) | IN($skip[])) | not)
+    | "\($lab)\t\(.org)\t\(.name)"
+' repos.json)
 
 # Render one section per lab, repositories most-recently-active first.
 jq -r '.labs[].display_name' repos.json | sort -u | while IFS= read -r lab; do

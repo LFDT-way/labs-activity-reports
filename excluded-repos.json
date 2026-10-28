@@ -1,0 +1,12 @@
+{
+  "excluded": [
+    {
+      "org": "hyperledger-labs",
+      "name": "hyperledger-community-management-tools"
+    },
+    {
+      "org": "hyperledger-labs",
+      "name": "documentation-template"
+    }
+  ]
+}

@@ -2,6 +2,8 @@
 
 This repository tracks GitHub activity for LF Decentralized Trust labs and flags labs that appear to be inactive. The set of tracked labs and their repositories is defined in [repos.json](repos.json), and the reports are generated from the GitHub API by [generate_activity.sh](generate_activity.sh).
 
+Repositories listed in [excluded-repos.json](excluded-repos.json) are skipped: they are neither queried nor reported, and a lab whose every repository is excluded does not appear in any report. Use it to drop a repository from the reports without removing it from [repos.json](repos.json).
+
 ## Reports
 
 | File | Contents | Criteria |
