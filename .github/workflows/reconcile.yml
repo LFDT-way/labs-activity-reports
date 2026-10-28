@@ -1,0 +1,46 @@
+name: Reconcile Labs
+
+# Regenerates unlisted-labs.md from the LFDT Labs site, the lab-proposals
+# tracker and the enterprise inventory published to LFDT-way/gh-data.
+#
+# repos.json is never edited here. Naming a lab, deciding whether one has
+# graduated to a project, and grouping repositories under a lab entry are
+# judgement calls; the report describes the drift and a person makes the edit.
+
+on:
+  schedule:
+    - cron: '0 6 * * 1' # Mondays, after the daily activity report
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      # The inventory is read anonymously from raw.githubusercontent.com. The
+      # token is for the GitHub API, which this calls a few hundred times:
+      # unauthenticated requests are capped at 60 an hour. The default
+      # per-run token is enough, since every repository it reads is public.
+      - name: Regenerate unlisted-labs.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 reconcile.py
+
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add unlisted-labs.md
+
+          if git diff --cached --quiet; then
+            echo "unlisted-labs.md is unchanged; nothing to commit"
+            exit 0
+          fi
+
+          git commit -m "Update labs reconciliation report"
+          git push

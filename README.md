@@ -4,6 +4,8 @@ This repository tracks GitHub activity for LF Decentralized Trust labs and flags
 
 Repositories listed in [excluded-repos.json](excluded-repos.json) are skipped: they are neither queried nor reported, and a lab whose every repository is excluded does not appear in any report. Use it to drop a repository from the reports without removing it from [repos.json](repos.json).
 
+Separately, [reconcile.py](reconcile.py) checks weekly whether [repos.json](repos.json) still matches reality and writes [unlisted-labs.md](unlisted-labs.md). It never edits [repos.json](repos.json) itself: naming a lab, deciding whether one has graduated to a project, and grouping repositories under a lab entry are judgement calls, so the report describes the drift and a person makes the edit.
+
 ## Reports
 
 | File | Contents | Criteria |
@@ -11,6 +13,7 @@ Repositories listed in [excluded-repos.json](excluded-repos.json) are skipped: t
 | [activity.md](activity.md) | The full activity report: for every tracked repository, the timestamp of its latest commit push, latest pull request update, and latest issue update, grouped by lab. | All tracked labs, regardless of activity level. |
 | [evaluate.md](evaluate.md) | Labs that should be evaluated for continued viability. | No activity in any of the lab's repositories in the last **three months**, but activity within the last six months. |
 | [at-risk.md](at-risk.md) | Labs considered at risk of being archived or retired. | No activity in any of the lab's repositories in the last **six months**. |
+| [unlisted-labs.md](unlisted-labs.md) | Where the tracked set has drifted from the LFDT Labs site, the lab-proposals tracker and the enterprise repository inventory. | Regenerated weekly; not about activity. |
 
 ## How labs are classified
 
