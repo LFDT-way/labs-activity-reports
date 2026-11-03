@@ -1,25 +1,18 @@
 # Labs to Evaluate
 
-**Report date: 2026-11-02 (based on [activity.md](activity.md) generated 2026-11-02 00:25:59 UTC)**
+**Report date: 2026-11-03 (based on [activity.md](activity.md) generated 2026-11-03 00:23:22 UTC)**
 
-Labs listed here have had **no activity in the last three months** (no activity since 2026-08-02), but have had activity within the last six months. These labs should be evaluated for continued viability. Labs with no activity for more than six months are escalated to [at-risk.md](at-risk.md) and are not repeated here.
+Labs listed here have had **no activity in the last three months** (no activity since 2026-08-03), but have had activity within the last six months. These labs should be evaluated for continued viability. Labs with no activity for more than six months are escalated to [at-risk.md](at-risk.md) and are not repeated here.
 
 A lab's "most recent activity" is the latest of the last commit push, pull request update, or issue update across all of its tracked repositories, as reported in [activity.md](activity.md).
 
 | Lab | Most Recent Activity | Repositories |
 | :--- | :--- | :--- |
-| Proof Of Process | 2026-05-02 12:50:05 | 1 |
 | IPRAM | 2026-06-23 10:16:26 | 3 |
 | Sigvelis | 2026-06-25 04:12:27 | 1 |
 | Briolette | 2026-06-26 13:02:13 | 2 |
 | ChainLaunch | 2026-07-17 10:06:41 | 1 |
 | Yui | 2026-07-28 04:51:57 | 5 |
-
-## Proof Of Process
-
-| Repository | Last Activity | Link |
-| :--- | :--- | :--- |
-| LF-Decentralized-Trust-labs/proof-of-process | 2026-05-02 12:50:05 | [github.com/LF-Decentralized-Trust-labs/proof-of-process](https://github.com/LF-Decentralized-Trust-labs/proof-of-process) |
 
 ## IPRAM
 

@@ -1,8 +1,8 @@
 # At-Risk Labs
 
-**Report date: 2026-11-02 (based on [activity.md](activity.md) generated 2026-11-02 00:25:59 UTC)**
+**Report date: 2026-11-03 (based on [activity.md](activity.md) generated 2026-11-03 00:23:22 UTC)**
 
-Labs listed here have had **no activity in the last six months** (no activity since 2026-05-02). These labs are considered at risk of being archived or retired.
+Labs listed here have had **no activity in the last six months** (no activity since 2026-05-03). These labs are considered at risk of being archived or retired.
 
 A lab's "most recent activity" is the latest of the last commit push, pull request update, or issue update across all of its tracked repositories, as reported in [activity.md](activity.md).
 
@@ -10,6 +10,7 @@ A lab's "most recent activity" is the latest of the last commit push, pull reque
 | :--- | :--- | :--- |
 | Zkbk | 2026-02-19 20:28:52 | 1 |
 | Hyperledger Fabric Connector | 2026-03-13 07:46:21 | 1 |
+| Proof Of Process | 2026-05-02 12:50:05 | 1 |
 
 ## Zkbk
 
@@ -22,3 +23,9 @@ A lab's "most recent activity" is the latest of the last commit push, pull reque
 | Repository | Last Activity | Link |
 | :--- | :--- | :--- |
 | hyperledger-labs/hlf-connector | 2026-03-13 07:46:21 | [github.com/hyperledger-labs/hlf-connector](https://github.com/hyperledger-labs/hlf-connector) |
+
+## Proof Of Process
+
+| Repository | Last Activity | Link |
+| :--- | :--- | :--- |
+| LF-Decentralized-Trust-labs/proof-of-process | 2026-05-02 12:50:05 | [github.com/LF-Decentralized-Trust-labs/proof-of-process](https://github.com/LF-Decentralized-Trust-labs/proof-of-process) |
