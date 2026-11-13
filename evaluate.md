@@ -1,8 +1,8 @@
 # Labs to Evaluate
 
-**Report date: 2026-11-12 (based on [activity.md](activity.md) generated 2026-11-12 00:24:26 UTC)**
+**Report date: 2026-11-13 (based on [activity.md](activity.md) generated 2026-11-13 00:24:13 UTC)**
 
-Labs listed here have had **no activity in the last three months** (no activity since 2026-08-12), but have had activity within the last six months. These labs should be evaluated for continued viability. Labs with no activity for more than six months are escalated to [at-risk.md](at-risk.md) and are not repeated here.
+Labs listed here have had **no activity in the last three months** (no activity since 2026-08-13), but have had activity within the last six months. These labs should be evaluated for continued viability. Labs with no activity for more than six months are escalated to [at-risk.md](at-risk.md) and are not repeated here.
 
 A lab's "most recent activity" is the latest of the last commit push, pull request update, or issue update across all of its tracked repositories, as reported in [activity.md](activity.md).
 
@@ -10,7 +10,6 @@ A lab's "most recent activity" is the latest of the last commit push, pull reque
 | :--- | :--- | :--- |
 | IPRAM | 2026-06-23 10:16:26 | 3 |
 | Sigvelis | 2026-06-25 04:12:27 | 1 |
-| Briolette | 2026-06-26 13:02:13 | 2 |
 | ChainLaunch | 2026-07-17 10:06:41 | 1 |
 | Yui | 2026-07-28 04:51:57 | 5 |
 
@@ -27,13 +26,6 @@ A lab's "most recent activity" is the latest of the last commit push, pull reque
 | Repository | Last Activity | Link |
 | :--- | :--- | :--- |
 | Sigvelis/sigvelis | 2026-06-25 04:12:27 | [github.com/Sigvelis/sigvelis](https://github.com/Sigvelis/sigvelis) |
-
-## Briolette
-
-| Repository | Last Activity | Link |
-| :--- | :--- | :--- |
-| Briolette/briolette | 2026-06-26 13:02:13 | [github.com/Briolette/briolette](https://github.com/Briolette/briolette) |
-| Briolette/governance | 2026-06-26 12:10:21 | [github.com/Briolette/governance](https://github.com/Briolette/governance) |
 
 ## ChainLaunch
 
